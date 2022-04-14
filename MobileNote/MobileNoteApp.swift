@@ -11,7 +11,7 @@ import SwiftUI
 struct MobileNoteApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(docId: .constant("软件工程-安全生产"))
         }
     }
 }

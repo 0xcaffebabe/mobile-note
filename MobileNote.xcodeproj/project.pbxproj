@@ -7,35 +7,112 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F2BF5CF280848F500449575 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2BF5CE280848F500449575 /* WebView.swift */; };
+		0F2BF5D328084C3800449575 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2BF5D228084C3800449575 /* Api.swift */; };
+		0F2BF5D628084D5C00449575 /* DocFileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2BF5D528084D5C00449575 /* DocFileInfo.swift */; };
+		0F2BF5D828084E0B00449575 /* CommitInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2BF5D728084E0B00449575 /* CommitInfo.swift */; };
+		0F2BF5DB28084EB900449575 /* DocUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2BF5DA28084EB900449575 /* DocUtils.swift */; };
+		0F2BF5E3280853A100449575 /* MobileNoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2BF5E2280853A100449575 /* MobileNoteTests.swift */; };
 		0F349629280847EE002A4A2C /* MobileNoteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F349628280847EE002A4A2C /* MobileNoteApp.swift */; };
 		0F34962B280847EE002A4A2C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F34962A280847EE002A4A2C /* ContentView.swift */; };
 		0F34962D280847FA002A4A2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F34962C280847FA002A4A2C /* Assets.xcassets */; };
 		0F349630280847FA002A4A2C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F34962F280847FA002A4A2C /* Preview Assets.xcassets */; };
+		0F737A9628085C1C00CC5A45 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 0F737A9528085C1C00CC5A45 /* Alamofire */; };
+		0F737A992808724E00CC5A45 /* DocView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F737A982808724E00CC5A45 /* DocView.swift */; };
+		0F737A9C2808783D00CC5A45 /* Ink in Frameworks */ = {isa = PBXBuildFile; productRef = 0F737A9B2808783D00CC5A45 /* Ink */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		0F2BF5E4280853A100449575 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0F34961D280847EE002A4A2C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0F349624280847EE002A4A2C;
+			remoteInfo = MobileNote;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		0F2BF5CE280848F500449575 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		0F2BF5D228084C3800449575 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		0F2BF5D528084D5C00449575 /* DocFileInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocFileInfo.swift; sourceTree = "<group>"; };
+		0F2BF5D728084E0B00449575 /* CommitInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitInfo.swift; sourceTree = "<group>"; };
+		0F2BF5DA28084EB900449575 /* DocUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocUtils.swift; sourceTree = "<group>"; };
+		0F2BF5E0280853A100449575 /* MobileNoteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobileNoteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0F2BF5E2280853A100449575 /* MobileNoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileNoteTests.swift; sourceTree = "<group>"; };
 		0F349625280847EE002A4A2C /* MobileNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F349628280847EE002A4A2C /* MobileNoteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileNoteApp.swift; sourceTree = "<group>"; };
 		0F34962A280847EE002A4A2C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0F34962C280847FA002A4A2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0F34962F280847FA002A4A2C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0F737A982808724E00CC5A45 /* DocView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		0F349622280847EE002A4A2C /* Frameworks */ = {
+		0F2BF5DD280853A100449575 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		0F349622280847EE002A4A2C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0F737A9628085C1C00CC5A45 /* Alamofire in Frameworks */,
+				0F737A9C2808783D00CC5A45 /* Ink in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F2BF5D028084BC900449575 /* service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = service;
+			sourceTree = "<group>";
+		};
+		0F2BF5D128084BEC00449575 /* repository */ = {
+			isa = PBXGroup;
+			children = (
+				0F2BF5D228084C3800449575 /* Api.swift */,
+			);
+			path = repository;
+			sourceTree = "<group>";
+		};
+		0F2BF5D428084D4A00449575 /* dto */ = {
+			isa = PBXGroup;
+			children = (
+				0F2BF5D528084D5C00449575 /* DocFileInfo.swift */,
+				0F2BF5D728084E0B00449575 /* CommitInfo.swift */,
+			);
+			path = dto;
+			sourceTree = "<group>";
+		};
+		0F2BF5D928084EA700449575 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				0F2BF5DA28084EB900449575 /* DocUtils.swift */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
+		0F2BF5E1280853A100449575 /* MobileNoteTests */ = {
+			isa = PBXGroup;
+			children = (
+				0F2BF5E2280853A100449575 /* MobileNoteTests.swift */,
+			);
+			path = MobileNoteTests;
+			sourceTree = "<group>";
+		};
 		0F34961C280847EE002A4A2C = {
 			isa = PBXGroup;
 			children = (
 				0F349627280847EE002A4A2C /* MobileNote */,
+				0F2BF5E1280853A100449575 /* MobileNoteTests */,
 				0F349626280847EE002A4A2C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -44,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				0F349625280847EE002A4A2C /* MobileNote.app */,
+				0F2BF5E0280853A100449575 /* MobileNoteTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -51,10 +129,16 @@
 		0F349627280847EE002A4A2C /* MobileNote */ = {
 			isa = PBXGroup;
 			children = (
+				0F737A972808723000CC5A45 /* views */,
+				0F2BF5D928084EA700449575 /* util */,
+				0F2BF5D428084D4A00449575 /* dto */,
+				0F2BF5D128084BEC00449575 /* repository */,
+				0F2BF5D028084BC900449575 /* service */,
 				0F349628280847EE002A4A2C /* MobileNoteApp.swift */,
 				0F34962A280847EE002A4A2C /* ContentView.swift */,
 				0F34962C280847FA002A4A2C /* Assets.xcassets */,
 				0F34962E280847FA002A4A2C /* Preview Content */,
+				0F2BF5CE280848F500449575 /* WebView.swift */,
 			);
 			path = MobileNote;
 			sourceTree = "<group>";
@@ -67,9 +151,35 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		0F737A972808723000CC5A45 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				0F737A982808724E00CC5A45 /* DocView.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0F2BF5DF280853A100449575 /* MobileNoteTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0F2BF5E6280853A100449575 /* Build configuration list for PBXNativeTarget "MobileNoteTests" */;
+			buildPhases = (
+				0F2BF5DC280853A100449575 /* Sources */,
+				0F2BF5DD280853A100449575 /* Frameworks */,
+				0F2BF5DE280853A100449575 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0F2BF5E5280853A100449575 /* PBXTargetDependency */,
+			);
+			name = MobileNoteTests;
+			productName = MobileNoteTests;
+			productReference = 0F2BF5E0280853A100449575 /* MobileNoteTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		0F349624280847EE002A4A2C /* MobileNote */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0F349633280847FA002A4A2C /* Build configuration list for PBXNativeTarget "MobileNote" */;
@@ -83,6 +193,10 @@
 			dependencies = (
 			);
 			name = MobileNote;
+			packageProductDependencies = (
+				0F737A9528085C1C00CC5A45 /* Alamofire */,
+				0F737A9B2808783D00CC5A45 /* Ink */,
+			);
 			productName = MobileNote;
 			productReference = 0F349625280847EE002A4A2C /* MobileNote.app */;
 			productType = "com.apple.product-type.application";
@@ -97,6 +211,10 @@
 				LastSwiftUpdateCheck = 1330;
 				LastUpgradeCheck = 1330;
 				TargetAttributes = {
+					0F2BF5DF280853A100449575 = {
+						CreatedOnToolsVersion = 13.3.1;
+						TestTargetID = 0F349624280847EE002A4A2C;
+					};
 					0F349624280847EE002A4A2C = {
 						CreatedOnToolsVersion = 13.3.1;
 					};
@@ -111,16 +229,28 @@
 				Base,
 			);
 			mainGroup = 0F34961C280847EE002A4A2C;
+			packageReferences = (
+				0F737A9428085C1C00CC5A45 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				0F737A9A2808783D00CC5A45 /* XCRemoteSwiftPackageReference "Ink" */,
+			);
 			productRefGroup = 0F349626280847EE002A4A2C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				0F349624280847EE002A4A2C /* MobileNote */,
+				0F2BF5DF280853A100449575 /* MobileNoteTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0F2BF5DE280853A100449575 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0F349623280847EE002A4A2C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -133,18 +263,76 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0F2BF5DC280853A100449575 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0F2BF5E3280853A100449575 /* MobileNoteTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0F349621280847EE002A4A2C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F2BF5D628084D5C00449575 /* DocFileInfo.swift in Sources */,
+				0F737A992808724E00CC5A45 /* DocView.swift in Sources */,
+				0F2BF5DB28084EB900449575 /* DocUtils.swift in Sources */,
+				0F2BF5CF280848F500449575 /* WebView.swift in Sources */,
 				0F34962B280847EE002A4A2C /* ContentView.swift in Sources */,
+				0F2BF5D328084C3800449575 /* Api.swift in Sources */,
+				0F2BF5D828084E0B00449575 /* CommitInfo.swift in Sources */,
 				0F349629280847EE002A4A2C /* MobileNoteApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		0F2BF5E5280853A100449575 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0F349624280847EE002A4A2C /* MobileNote */;
+			targetProxy = 0F2BF5E4280853A100449575 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		0F2BF5E7280853A100449575 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8FGFU2BT8C;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = wang.ismy.MobileNoteTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MobileNote.app/MobileNote";
+			};
+			name = Debug;
+		};
+		0F2BF5E8280853A100449575 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8FGFU2BT8C;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = wang.ismy.MobileNoteTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MobileNote.app/MobileNote";
+			};
+			name = Release;
+		};
 		0F349631280847FA002A4A2C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -320,6 +508,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0F2BF5E6280853A100449575 /* Build configuration list for PBXNativeTarget "MobileNoteTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0F2BF5E7280853A100449575 /* Debug */,
+				0F2BF5E8280853A100449575 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		0F349620280847EE002A4A2C /* Build configuration list for PBXProject "MobileNote" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -339,6 +536,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0F737A9428085C1C00CC5A45 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		0F737A9A2808783D00CC5A45 /* XCRemoteSwiftPackageReference "Ink" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JohnSundell/Ink.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0F737A9528085C1C00CC5A45 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0F737A9428085C1C00CC5A45 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		0F737A9B2808783D00CC5A45 /* Ink */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0F737A9A2808783D00CC5A45 /* XCRemoteSwiftPackageReference "Ink" */;
+			productName = Ink;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0F34961D280847EE002A4A2C /* Project object */;
 }
