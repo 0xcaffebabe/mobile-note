@@ -15,33 +15,19 @@ struct ContentView: View {
     @Binding var docId: String
     
     var body: some View {
-        TextField(text: $docId) {
-            Text("输入Doc Id")
-        }
-        .padding(.horizontal)
-        
-        Button {
-            Api.defaultApi.getDocFileInfo(id: docId) { docFileInfo in
-                showDocView = true
-                if let docFileInfo = docFileInfo {
-                    self.docFileInfo = docFileInfo
+        NavigationView {
+            VStack {
+                TextField(text: $docId) {
+                    Text("输入Doc Id")
+                }
+                .padding(.horizontal)
+                NavigationLink {
+                    
+                    DocView(docId: docId)
+                } label: {
+                    Text("进入")
                 }
             }
-        } label: {
-            Text("转换")
-        }
-        .sheet(isPresented: $showDocView) {
-            DocView(docFileInfo: docFileInfo)
-        }
-        
-        Button {
-            showWebView.toggle()
-        } label: {
-            Text("开始")
-        }
-        .sheet(isPresented: $showWebView) {
-//            WebView(url: URL(string: "https://b.ismy.wang/#/doc/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B-%E5%AE%89%E5%85%A8%E7%94%9F%E4%BA%A7")!)
-            
         }
     }
 }
