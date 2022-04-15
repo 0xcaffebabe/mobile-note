@@ -22,6 +22,8 @@
 		0F737A9C2808783D00CC5A45 /* Ink in Frameworks */ = {isa = PBXBuildFile; productRef = 0F737A9B2808783D00CC5A45 /* Ink */; };
 		0FA2D9812809688900141E66 /* markdown-v1.css in Resources */ = {isa = PBXBuildFile; fileRef = 0FA2D9802809688900141E66 /* markdown-v1.css */; };
 		0FA2D9832809694500141E66 /* BaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2D9822809694500141E66 /* BaseData.swift */; };
+		0FA2D9852809B3DE00141E66 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2D9842809B3DE00141E66 /* Category.swift */; };
+		0FA2D9872809CC3A00141E66 /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2D9862809CC3A00141E66 /* CategoryListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		0F737A982808724E00CC5A45 /* DocView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocView.swift; sourceTree = "<group>"; };
 		0FA2D9802809688900141E66 /* markdown-v1.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = "markdown-v1.css"; sourceTree = "<group>"; };
 		0FA2D9822809694500141E66 /* BaseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseData.swift; sourceTree = "<group>"; };
+		0FA2D9842809B3DE00141E66 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		0FA2D9862809CC3A00141E66 /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +97,7 @@
 			children = (
 				0F2BF5D528084D5C00449575 /* DocFileInfo.swift */,
 				0F2BF5D728084E0B00449575 /* CommitInfo.swift */,
+				0FA2D9842809B3DE00141E66 /* Category.swift */,
 			);
 			path = dto;
 			sourceTree = "<group>";
@@ -161,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				0F737A982808724E00CC5A45 /* DocView.swift */,
+				0FA2D9862809CC3A00141E66 /* CategoryListView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -291,6 +297,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F2BF5D628084D5C00449575 /* DocFileInfo.swift in Sources */,
+				0FA2D9852809B3DE00141E66 /* Category.swift in Sources */,
+				0FA2D9872809CC3A00141E66 /* CategoryListView.swift in Sources */,
 				0F737A992808724E00CC5A45 /* DocView.swift in Sources */,
 				0F2BF5DB28084EB900449575 /* DocUtils.swift in Sources */,
 				0FA2D9832809694500141E66 /* BaseData.swift in Sources */,

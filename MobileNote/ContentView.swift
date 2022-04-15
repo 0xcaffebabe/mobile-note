@@ -27,6 +27,11 @@ struct ContentView: View {
                 } label: {
                     Text("进入")
                 }
+                NavigationLink {
+                    CategoryListView(categoryList: [])
+                } label: {
+                    Text("目录")
+                }
             }
         }
     }

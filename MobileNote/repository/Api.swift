@@ -35,4 +35,20 @@ public class Api {
         }
     }
     
+    func getCategoryList(callback: @escaping ([Category]?) -> ()) {
+        let url = Api.baseUrl + "category.json"
+        AF.request(url).response { response in
+            if let data = response.data {
+                do {
+                    let decoder = JSONDecoder()
+                    let categoryList = try decoder.decode([Category].self, from: data)
+                    callback(categoryList)
+                } catch {
+                    callback(nil)
+                    debugPrint("Couldn't parse, \(error)")
+                }
+            }
+        }
+    }
+    
 }
