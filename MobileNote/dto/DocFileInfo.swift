@@ -7,6 +7,7 @@
 
 import Foundation
 import Ink
+import SwiftSoup
 
 struct DocFileInfo: Hashable, Codable {
     // 文档名称
@@ -22,7 +23,32 @@ struct DocFileInfo: Hashable, Codable {
     let createTime: String
     
     lazy var html: String = {
-        let parser = MarkdownParser()
+        var parser = MarkdownParser()
+        
+        
+        let modifier = Modifier(target: .images) { html, markdown in
+            do {
+                let doc = try SwiftSoup.parse(html)
+                var imgLink = try doc.select("img").attr("src")
+                let imgTitle = try doc.select("img").attr("alt")
+                if imgLink.starts(with: "/") {
+                    if let range = imgLink.range(of: "/") {
+                        imgLink = Api.baseUrl + imgLink.replacingCharacters(in: range, with: "")
+                    }
+                }
+                try doc.select("img").attr("src", imgLink)
+                debugPrint(imgLink, imgTitle)
+                return "<p class='img-wrapper'>\(try doc.html())<p class='img-title'>\(imgTitle)</p></p>"
+            }catch Exception.Error(let type, let message) {
+                print(message)
+            } catch {
+                print("error")
+            }
+            return html
+        }
+
+        parser.addModifier(modifier)
+        
         let result = parser.parse(content)
         return result.html
     }()

@@ -12,7 +12,7 @@ struct Category: Hashable, Codable, Identifiable {
     let link: String?
     var id: String {
         if let link = link {
-            return link
+            return  name + "-" + link
         }
         return name
     }

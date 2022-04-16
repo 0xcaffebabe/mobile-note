@@ -11,7 +11,6 @@ struct DocView: View {
     @State var docId: String
     @State private var docFileInfo: DocFileInfo = DocFileInfo.empty()
     var body: some View {
-        NavigationView {
             WebView(
                 html: """
             <html>
@@ -26,7 +25,6 @@ struct DocView: View {
                 </body>
             </html>
             """)
-        }
         .onAppear {
             Api.defaultApi.getDocFileInfo(id: docId) { docFileInfo in
                 if let docFileInfo = docFileInfo {
