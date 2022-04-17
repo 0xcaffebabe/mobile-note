@@ -6,25 +6,42 @@
 //
 
 import SwiftUI
+import ImageViewerRemote
 
 struct DocView: View {
+    var baseData = BaseData()
     @State var docId: String
     @State private var docFileInfo: DocFileInfo = DocFileInfo.empty()
+    
+    @State var showImageViewer: Bool = false
+    @State var imgURL: String = "https://..."
+    
+    
     var body: some View {
-            WebView(
-                html: """
-            <html>
-                <header><meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'></header>
-                <style>
-                    \(BaseData().markdownV1Css)
-                </style>
-                <body>
-                    <div class="markdown-section">
-                    \(docFileInfo.html)
-                    </div>
-                </body>
-            </html>
-            """)
+                WebView(
+                    html: """
+                <html>
+                    <header><meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'></header>
+                    <style>
+                        \(baseData.markdownV1Css)
+                    </style>
+                    <body>
+                        <div class="markdown-section">
+                        \(docFileInfo.html)
+                        </div>
+                    </body>
+                    <script>
+                        \(baseData.docJs)
+                    </script>
+                </html>
+                """, bridge: DocImgBridge{ imgSrc in
+                    self.imgURL = imgSrc
+                    self.showImageViewer = true
+                }, bridgeName: "doc-img-click")
+                .overlay {
+                    ImageViewerRemote(imageURL: self.$imgURL, viewerShown: self.$showImageViewer)
+                }
+            
         .onAppear {
             Api.defaultApi.getDocFileInfo(id: docId) { docFileInfo in
                 if let docFileInfo = docFileInfo {
@@ -33,6 +50,9 @@ struct DocView: View {
             }
         }        .navigationTitle(docFileInfo.name)
         .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(self.$showImageViewer.wrappedValue == true)
+        
+        
     }
 }
 

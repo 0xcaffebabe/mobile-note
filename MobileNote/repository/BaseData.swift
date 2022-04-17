@@ -9,6 +9,7 @@ import Foundation
 
 struct BaseData {
     let markdownV1Css = load(filename: "markdown-v1.css")
+    let docJs = load(filename: "doc.js")
 }
 
 

@@ -11,18 +11,26 @@ import WebKit
 struct WebView: UIViewRepresentable {
     var url: URL?
     var html: String?
+    var bridge: WKScriptMessageHandler?
+    var bridgeName: String?
     
     func makeUIView(context: Context) -> WKWebView {
-        return WKWebView()
+        debugPrint("create webview")
+        let webview = WKWebView()
+        // 注册JS桥
+        if let bridge = bridge, let bridgeName = bridgeName {
+            webview.configuration.userContentController.add(bridge, name: bridgeName)
+        }
+        return webview
     }
     
-    func updateUIView(_ webView: WKWebView, context: Context) {
+    func updateUIView(_ webview: WKWebView, context: Context) {
         if let url = url {
             let request = URLRequest(url: url)
-            webView.load(request)
+            webview.load(request)
         }
         if let html = html {
-            webView.loadHTMLString(html, baseURL: nil)
+            webview.loadHTMLString(html, baseURL: nil)
         }
     }
 }

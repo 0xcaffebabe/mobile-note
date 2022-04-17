@@ -25,6 +25,10 @@
 		0FA2D9832809694500141E66 /* BaseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2D9822809694500141E66 /* BaseData.swift */; };
 		0FA2D9852809B3DE00141E66 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2D9842809B3DE00141E66 /* Category.swift */; };
 		0FA2D9872809CC3A00141E66 /* CategoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA2D9862809CC3A00141E66 /* CategoryListView.swift */; };
+		0FD1327E280BF5CC005ACE3B /* doc.js in Resources */ = {isa = PBXBuildFile; fileRef = 0FD1327D280BF5CC005ACE3B /* doc.js */; };
+		0FD13281280BF728005ACE3B /* ImageViewer in Frameworks */ = {isa = PBXBuildFile; productRef = 0FD13280280BF728005ACE3B /* ImageViewer */; };
+		0FD13283280BF728005ACE3B /* ImageViewerRemote in Frameworks */ = {isa = PBXBuildFile; productRef = 0FD13282280BF728005ACE3B /* ImageViewerRemote */; };
+		0FD13286280BFA04005ACE3B /* DocImgBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD13285280BFA04005ACE3B /* DocImgBridge.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,8 @@
 		0FA2D9822809694500141E66 /* BaseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseData.swift; sourceTree = "<group>"; };
 		0FA2D9842809B3DE00141E66 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		0FA2D9862809CC3A00141E66 /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
+		0FD1327D280BF5CC005ACE3B /* doc.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = doc.js; sourceTree = "<group>"; };
+		0FD13285280BFA04005ACE3B /* DocImgBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocImgBridge.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +75,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FD13281280BF728005ACE3B /* ImageViewer in Frameworks */,
+				0FD13283280BF728005ACE3B /* ImageViewerRemote in Frameworks */,
 				0F737A9628085C1C00CC5A45 /* Alamofire in Frameworks */,
 				0F737A9C2808783D00CC5A45 /* Ink in Frameworks */,
 				0F73A5B3280AE5FE0087FEB2 /* SwiftSoup in Frameworks */,
@@ -141,6 +149,8 @@
 		0F349627280847EE002A4A2C /* MobileNote */ = {
 			isa = PBXGroup;
 			children = (
+				0FD13284280BF9E8005ACE3B /* bridge */,
+				0FD1327C280BF5A2005ACE3B /* js */,
 				0FA2D97F2809680D00141E66 /* css */,
 				0F737A972808723000CC5A45 /* views */,
 				0F2BF5D928084EA700449575 /* util */,
@@ -181,6 +191,22 @@
 			path = css;
 			sourceTree = "<group>";
 		};
+		0FD1327C280BF5A2005ACE3B /* js */ = {
+			isa = PBXGroup;
+			children = (
+				0FD1327D280BF5CC005ACE3B /* doc.js */,
+			);
+			path = js;
+			sourceTree = "<group>";
+		};
+		0FD13284280BF9E8005ACE3B /* bridge */ = {
+			isa = PBXGroup;
+			children = (
+				0FD13285280BFA04005ACE3B /* DocImgBridge.swift */,
+			);
+			path = bridge;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -219,6 +245,8 @@
 				0F737A9528085C1C00CC5A45 /* Alamofire */,
 				0F737A9B2808783D00CC5A45 /* Ink */,
 				0F73A5B2280AE5FE0087FEB2 /* SwiftSoup */,
+				0FD13280280BF728005ACE3B /* ImageViewer */,
+				0FD13282280BF728005ACE3B /* ImageViewerRemote */,
 			);
 			productName = MobileNote;
 			productReference = 0F349625280847EE002A4A2C /* MobileNote.app */;
@@ -256,6 +284,7 @@
 				0F737A9428085C1C00CC5A45 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				0F737A9A2808783D00CC5A45 /* XCRemoteSwiftPackageReference "Ink" */,
 				0F73A5B1280AE5FE0087FEB2 /* XCRemoteSwiftPackageReference "SwiftSoup" */,
+				0FD1327F280BF728005ACE3B /* XCRemoteSwiftPackageReference "swiftui-image-viewer" */,
 			);
 			productRefGroup = 0F349626280847EE002A4A2C /* Products */;
 			projectDirPath = "";
@@ -282,6 +311,7 @@
 				0F349630280847FA002A4A2C /* Preview Assets.xcassets in Resources */,
 				0FA2D9812809688900141E66 /* markdown-v1.css in Resources */,
 				0F34962D280847FA002A4A2C /* Assets.xcassets in Resources */,
+				0FD1327E280BF5CC005ACE3B /* doc.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F2BF5D628084D5C00449575 /* DocFileInfo.swift in Sources */,
+				0FD13286280BFA04005ACE3B /* DocImgBridge.swift in Sources */,
 				0FA2D9852809B3DE00141E66 /* Category.swift in Sources */,
 				0FA2D9872809CC3A00141E66 /* CategoryListView.swift in Sources */,
 				0F737A992808724E00CC5A45 /* DocView.swift in Sources */,
@@ -590,6 +621,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		0FD1327F280BF728005ACE3B /* XCRemoteSwiftPackageReference "swiftui-image-viewer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Jake-Short/swiftui-image-viewer.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -607,6 +646,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0F73A5B1280AE5FE0087FEB2 /* XCRemoteSwiftPackageReference "SwiftSoup" */;
 			productName = SwiftSoup;
+		};
+		0FD13280280BF728005ACE3B /* ImageViewer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0FD1327F280BF728005ACE3B /* XCRemoteSwiftPackageReference "swiftui-image-viewer" */;
+			productName = ImageViewer;
+		};
+		0FD13282280BF728005ACE3B /* ImageViewerRemote */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0FD1327F280BF728005ACE3B /* XCRemoteSwiftPackageReference "swiftui-image-viewer" */;
+			productName = ImageViewerRemote;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

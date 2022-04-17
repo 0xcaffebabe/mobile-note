@@ -37,7 +37,6 @@ struct DocFileInfo: Hashable, Codable {
                     }
                 }
                 try doc.select("img").attr("src", imgLink)
-                debugPrint(imgLink, imgTitle)
                 return "<p class='img-wrapper'>\(try doc.html())<p class='img-title'>\(imgTitle)</p></p>"
             }catch Exception.Error(let type, let message) {
                 print(message)
