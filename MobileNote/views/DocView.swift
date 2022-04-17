@@ -15,6 +15,7 @@ struct DocView: View {
     
     @State var showImageViewer: Bool = false
     @State var imgURL: String = "https://..."
+    @State var imgDesc: String = "111"
     
     
     var body: some View {
@@ -34,12 +35,23 @@ struct DocView: View {
                         \(baseData.docJs)
                     </script>
                 </html>
-                """, bridge: DocImgBridge{ imgSrc in
+                """, bridge: DocImgBridge{ imgSrc, imgDesc in
                     self.imgURL = imgSrc
+                    self.imgDesc = imgDesc
+                    debugPrint("img desc \(self.imgDesc)")
                     self.showImageViewer = true
                 }, bridgeName: "doc-img-click")
                 .overlay {
                     ImageViewerRemote(imageURL: self.$imgURL, viewerShown: self.$showImageViewer, closeButtonTopRight: true)
+                    if showImageViewer {
+                        VStack {
+                            Spacer()
+                            Spacer()
+                            Text(imgDesc)
+                                .foregroundColor(.white)
+                                .multilineTextAlignment(.center)
+                        }.frame(maxHeight: .infinity, alignment: .bottom)
+                    }
                 }
             
         .onAppear {
