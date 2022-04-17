@@ -29,6 +29,7 @@
 		0FD13281280BF728005ACE3B /* ImageViewer in Frameworks */ = {isa = PBXBuildFile; productRef = 0FD13280280BF728005ACE3B /* ImageViewer */; };
 		0FD13283280BF728005ACE3B /* ImageViewerRemote in Frameworks */ = {isa = PBXBuildFile; productRef = 0FD13282280BF728005ACE3B /* ImageViewerRemote */; };
 		0FD13286280BFA04005ACE3B /* DocImgBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD13285280BFA04005ACE3B /* DocImgBridge.swift */; };
+		0FD13288280C591C005ACE3B /* ReviewListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD13287280C591C005ACE3B /* ReviewListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		0FA2D9862809CC3A00141E66 /* CategoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryListView.swift; sourceTree = "<group>"; };
 		0FD1327D280BF5CC005ACE3B /* doc.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = doc.js; sourceTree = "<group>"; };
 		0FD13285280BFA04005ACE3B /* DocImgBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocImgBridge.swift; sourceTree = "<group>"; };
+		0FD13287280C591C005ACE3B /* ReviewListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +181,7 @@
 			children = (
 				0F737A982808724E00CC5A45 /* DocView.swift */,
 				0FA2D9862809CC3A00141E66 /* CategoryListView.swift */,
+				0FD13287280C591C005ACE3B /* ReviewListView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F2BF5D628084D5C00449575 /* DocFileInfo.swift in Sources */,
+				0FD13288280C591C005ACE3B /* ReviewListView.swift in Sources */,
 				0FD13286280BFA04005ACE3B /* DocImgBridge.swift in Sources */,
 				0FA2D9852809B3DE00141E66 /* Category.swift in Sources */,
 				0FA2D9872809CC3A00141E66 /* CategoryListView.swift in Sources */,

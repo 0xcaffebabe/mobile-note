@@ -9,9 +9,30 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @State private var selection: Tab = .categoryList
+    
+    enum Tab {
+        case categoryList
+        case reviewList
+    }
+    
     
     var body: some View {
-        CategoryListView()
+        NavigationView {
+            TabView(selection: $selection) {
+                CategoryListView()
+                    .tabItem{
+                        Label("目录", systemImage: "book")
+                    }
+                    .tag(Tab.categoryList)
+                ReviewListView()
+                    .tabItem{
+                        Label("回顾", systemImage: "pencil")
+                    }
+                    .tag(Tab.reviewList)
+            }
+        }
+        
     }
 }
 

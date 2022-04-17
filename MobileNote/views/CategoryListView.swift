@@ -73,7 +73,6 @@ struct CategoryListView: View {
     //            .filter {category in self.kw.isEmpty || categoryIsMatch(category: category, queryString: kw)}
     //    }
     var body: some View {
-        NavigationView {
             List {
                 TextField(text: $categoryListVM.kw) {
                     Text("输入搜索关键字")
@@ -86,7 +85,7 @@ struct CategoryListView: View {
                     }.disabled(category.link == nil)
                 }
             }
-        }
+        
         .onAppear{
             Api.defaultApi.getCategoryList { categoryList in
                 if let categoryList = categoryList {
