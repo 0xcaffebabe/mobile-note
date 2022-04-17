@@ -39,7 +39,7 @@ struct DocView: View {
                     self.showImageViewer = true
                 }, bridgeName: "doc-img-click")
                 .overlay {
-                    ImageViewerRemote(imageURL: self.$imgURL, viewerShown: self.$showImageViewer)
+                    ImageViewerRemote(imageURL: self.$imgURL, viewerShown: self.$showImageViewer, closeButtonTopRight: true)
                 }
             
         .onAppear {
@@ -50,7 +50,7 @@ struct DocView: View {
             }
         }        .navigationTitle(docFileInfo.name)
         .navigationBarTitleDisplayMode(.inline)
-        .navigationBarBackButtonHidden(self.$showImageViewer.wrappedValue == true)
+        .navigationBarHidden(self.$showImageViewer.wrappedValue == true)
         
         
     }
