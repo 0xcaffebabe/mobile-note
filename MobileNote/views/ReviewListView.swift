@@ -8,23 +8,46 @@
 import SwiftUI
 
 struct ReviewListView: View {
+    @State var reviewList: [Review] = []
     var body: some View {
         List {
-            ForEach(1 ..< 10) { index in
-                NavigationLink {
-                    DocView(docId: "编程语言-C-nav")
-                } label: {
-                    VStack(alignment: .leading) {
-                        Text("编程语言-C-nav")
-                        HStack {
-                            Text("1999/2/17 12:00:00")
-                                .font(.caption)
-                            Text("unknow commit")
-                                .font(.body)
+            ForEach(reviewList) { review in
+                if let review = review {
+                    NavigationLink {
+                        DocView(docId: review.docId)
+                    } label: {
+                        VStack(alignment: .leading) {
+                            Text(review.docId)
+                            VStack {
+                                if let commitInfo = review.commitInfo {
+                                    HStack {
+                                    Text(commitInfo.date)
+                                        .font(.caption)
+                                        .foregroundColor(.gray)
+                                        Text(commitInfo.message)
+                                            .font(.body)
+                                    }
+                                }else {
+                                    HStack {
+                                    Text("1999/2/17 12:00:00")
+                                        .font(.caption)
+                                        .foregroundColor(.gray)
+                                        Text("unknow commit")
+                                            .font(.caption)
+                                    }
+                                }
+                            }
                         }
                     }
                 }
+                    
                 
+            }
+        }.onAppear {
+            Api.defaultApi.getReviewList { reviewList in
+                if let reviewList = reviewList {
+                    self.reviewList = reviewList
+                }
             }
         }
         

@@ -51,4 +51,20 @@ public class Api {
         }
     }
     
+    func getReviewList(callback: @escaping ([Review]?) -> ()) {
+        let url = Api.baseUrl + "descCommitTimeDocList.json"
+        AF.request(url).response { response in
+            if let data = response.data {
+                do {
+                    let decoder = JSONDecoder()
+                    let reviewList = try decoder.decode([[ReviewItem]].self, from: data).map {ReviewItem.toData($0)}
+                    callback(reviewList)
+                } catch {
+                    callback(nil)
+                    debugPrint("Couldn't parse, \(error)")
+                }
+            }
+        }
+    }
+    
 }

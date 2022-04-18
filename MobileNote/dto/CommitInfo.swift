@@ -12,6 +12,6 @@ struct CommitInfo : Hashable, Codable {
     let author: String
     let message: String
     let hash: String
-    let insertions: Int
-    let deletions: Int
+    let insertions: Int?
+    let deletions: Int?
 }
