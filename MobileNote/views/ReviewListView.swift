@@ -7,10 +7,38 @@
 
 import SwiftUI
 
+enum DateRange: String, CaseIterable, Identifiable {
+    case now = "现在"
+    case inOneDay = "1天内"
+    case inOneWeek = "1周内"
+    case inOneMonth = "1月内"
+    case inSixMonth = "6月内"
+    case far = "最远"
+    
+    var id: String {
+        rawValue
+    }
+}
+
 struct ReviewListView: View {
     @State var reviewList: [Review] = []
+    @State var startSelection = DateRange.now
+    @State var endSelection = DateRange.far
     var body: some View {
         List {
+            Picker("起始", selection: $startSelection) {
+                ForEach(DateRange.allCases){ dateRange in
+                    Text(dateRange.rawValue).tag(dateRange)
+                }
+            }
+            .pickerStyle(.segmented)
+            
+            Picker("结束", selection: $endSelection) {
+                ForEach(DateRange.allCases){ dateRange in
+                    Text(dateRange.rawValue).tag(dateRange)
+                }
+            }
+            .pickerStyle(.segmented)
             ForEach(reviewList) { review in
                 if let review = review {
                     NavigationLink {
