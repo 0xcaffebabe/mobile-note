@@ -92,26 +92,25 @@ struct ReviewListView: View {
                     } label: {
                         VStack(alignment: .leading) {
                             Text(review.docId)
-                            VStack {
-                                if let commitInfo = review.commitInfo {
-                                    HStack {
-                                        Text(commitInfo.date)
-                                            .font(.caption)
-                                            .foregroundColor(.gray)
-                                        Text(commitInfo.message)
-                                            .font(.body)
-                                    }
-                                }else {
-                                    HStack {
-                                        Text("1999/2/17 12:00:00")
-                                            .font(.caption)
-                                            .foregroundColor(.gray)
-                                        Text("unknow commit")
-                                            .font(.caption)
-                                    }
-                                }
+                                .font(.headline)
+                                .foregroundColor(.blue)
+                                .lineLimit(1)
+                            if let commitInfo = review.commitInfo {
+                                Text(commitInfo.message)
+                                    .font(.body)
+                                Text(commitInfo.date)
+                                    .font(.caption)
+                                    .foregroundColor(.gray)
+                                
+                            }else {
+                                Text("unknow commit")
+                                    .font(.caption)
+                                Text("1999/2/17 12:00:00")
+                                    .font(.caption)
+                                    .foregroundColor(.gray)
                             }
                         }
+                        
                     }
                 }
                 
