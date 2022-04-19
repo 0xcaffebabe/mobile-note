@@ -56,8 +56,8 @@ final class CategoryListVM : ObservableObject {
         // 异步过滤目录列表
         DispatchQueue.global().async {
             let list = self.originCateList.flatMap{v in [v] + v.chidren}
-                .filter {category in kw.isEmpty || categoryIsMatch(category: category, queryString: kw)}
-            debugPrint(list.count)
+                .filter {category in self.debouncedKw.isEmpty || categoryIsMatch(category: category, queryString: self.debouncedKw)}
+            debugPrint(list.count, kw)
             DispatchQueue.main.async {
                 self.filteredCateList = list
             }
