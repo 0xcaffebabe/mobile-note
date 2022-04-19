@@ -218,3 +218,4 @@ body[theme=dark] .markdown-section table thead tr,
 body[theme=dark] .markdown-section table tbody tr:nth-child(even) {
   background-color: var(--second-dark-bg-color);
 }
+

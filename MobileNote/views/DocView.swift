@@ -9,6 +9,7 @@ import SwiftUI
 import ImageViewerRemote
 
 struct DocView: View {
+    @Environment(\.colorScheme) var colorScheme
     var baseData = BaseData()
     @State var docId: String
     @State private var docFileInfo: DocFileInfo = DocFileInfo.empty()
@@ -26,7 +27,7 @@ struct DocView: View {
                     <style>
                         \(baseData.markdownV1Css)
                     </style>
-                    <body>
+                    <body theme='\(colorScheme == .dark ? "dark": "light")'>
                         <div class="markdown-section">
                         \(docFileInfo.html)
                         </div>
