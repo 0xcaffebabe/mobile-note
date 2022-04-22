@@ -9,13 +9,14 @@ import SwiftUI
 
 struct TOCListView: View {
     @State var tocList: [TOCItem] = []
+    var onClick : (String) -> () = { _ in ()}
     var body: some View {
         ScrollView {
             ForEach(tocList) { toc in
-                TOCView(tocItem: toc)
+                TOCView(tocItem: toc, onClick: self.onClick)
                     .offset(x: 10, y: 0)
             }
-        }.background(.white.opacity(0.8))
+        }.padding(.leading, 20)
     }
 }
 

@@ -7,6 +7,8 @@
 
 import SwiftUI
 import ImageViewerRemote
+import Snap
+
 
 struct DocView: View {
     @Environment(\.colorScheme) var colorScheme
@@ -18,8 +20,10 @@ struct DocView: View {
     @State var imgURL: String = "https://..."
     @State var imgDesc: String = "111"
     
-    @State var showToc = false
+    @State var ready = false
+    @State private var drawerState: AppleMapsSnapState = .tiny
     
+    @State private var invoker: WebView.Coordinator = WebView.Coordinator()
     
     var body: some View {
         ZStack {
@@ -45,7 +49,7 @@ struct DocView: View {
                 self.imgDesc = imgDesc
                 debugPrint("img desc \(self.imgDesc)")
                 self.showImageViewer = true
-            }, bridgeName: "doc-img-click")
+            }, bridgeName: "doc-img-click", invoker: invoker)
             .overlay {
                 ImageViewerRemote(imageURL: self.$imgURL, viewerShown: self.$showImageViewer, closeButtonTopRight: true)
                 if showImageViewer {
@@ -63,28 +67,38 @@ struct DocView: View {
                 Api.defaultApi.getDocFileInfo(id: docId) { docFileInfo in
                     if let docFileInfo = docFileInfo {
                         self.docFileInfo = docFileInfo
+                        self.ready = true
                     }
                 }
             }
             .navigationTitle(docFileInfo.name)
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarHidden(self.$showImageViewer.wrappedValue == true)
+            .ignoresSafeArea()
             
             
-            Button {
-                withAnimation(Animation.easeInOut.delay(0.4)) {
-                    self.showToc.toggle()
+            
+            if self.ready {
+                SnapDrawer(state: $drawerState, large: .paddingToTop(24), medium: .fraction(0.6), tiny: .height(5), allowInvisible: false) { state in
+                    VStack {
+                        Text("目录")
+                        TOCListView(tocList: self.docFileInfo.toc) {id in
+                            invoker.invoke(script: """
+                                var elm  = document.querySelectorAll('h1,h2,h3,h4,h5,h6')[\(id)]
+                                window.scrollTo(0, elm.offsetTop)
+                            """)
+                            debugPrint("cate click", id)
+                        }
+                        
+                    }.ignoresSafeArea()
+                    
+                    
                 }
-            }label: {
-                Text("目录")
+                
             }
-        }.overlay {
-            if self.showToc {
-                TOCListView(tocList: self.docFileInfo.toc)
-                    .frame(width: UIScreen.main.bounds.width / 2, height: UIScreen.main.bounds.height, alignment: .bottomLeading)
-                    .offset(x: (UIScreen.main.bounds.width / 4), y: 0)
-            }
+            
         }
+        
     }
 }
 

@@ -67,17 +67,20 @@ struct DocFileInfo: Hashable, Codable {
             var contentMap: [TOCItem?] = [nil, nil, nil, nil, nil, nil, nil, nil]
             var result: [TOCItem] = []
             var topLevel = -1
+            var cnt = 0
             for head in allHead {
                 let level = Int(head.tagName().replacingOccurrences(of: "h", with: ""))!
                 if topLevel == -1 {
                     topLevel = level
                 }
+                
                 var tocItem = TOCItem(
                     name: try head.text(),
-                    link: try head.attr("id"),
+                    link: String(cnt),
                     level: level,
                     children: []
                 )
+                cnt += 1
                 contentMap[level] = tocItem
                 if level == topLevel {
                     result.append(tocItem)

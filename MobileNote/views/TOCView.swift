@@ -9,23 +9,27 @@ import SwiftUI
 
 struct TOCView: View {
     @State var tocItem: TOCItem
+    var onClick : (String) -> () = { _ in ()}
     var body: some View {
         VStack(alignment: .leading) {
             Text(tocItem.name)
-                .font(.title3)
+                .font(.body)
                 .foregroundColor(.blue)
+                .onTapGesture {
+                    onClick(tocItem.link)
+                }
             Divider()
             Spacer()
             Group {
                 VStack {
                     if let children = tocItem.children {
                         ForEach(children) { item in
-                            TOCView(tocItem: item)
+                            TOCView(tocItem: item, onClick: self.onClick)
                         }
                     }
                 }
                 
-            }.offset(x: CGFloat(tocItem.level * 20), y: 0)
+            }.offset(x: CGFloat(tocItem.level * 10), y: 0)
         }
     }
 }

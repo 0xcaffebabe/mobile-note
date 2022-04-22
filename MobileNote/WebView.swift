@@ -13,18 +13,23 @@ struct WebView: UIViewRepresentable {
     var html: String?
     var bridge: WKScriptMessageHandler?
     var bridgeName: String?
+    var invoker: Coordinator?
     
     func makeCoordinator() -> Coordinator {
         Coordinator()
     }
     
     func makeUIView(context: Context) -> WKWebView {
-        debugPrint("create webview")
         let webview = WKWebView()
         // 注册JS桥
         if let bridge = bridge, let bridgeName = bridgeName {
             webview.configuration.userContentController.add(bridge, name: bridgeName)
         }
+        // 注册invoker
+        if let invoker = invoker {
+            invoker.webview = webview
+        }
+        context.coordinator.webview = webview
         return webview
     }
     
@@ -44,5 +49,14 @@ struct WebView: UIViewRepresentable {
     class Coordinator: NSObject {
         var lastHtml: String?
         var lastUrl: URL?
+        weak var webview: WKWebView?
+        
+        func invoke(script: String) {
+            if let webview = webview {
+                webview.evaluateJavaScript(script) { result,error in
+                    debugPrint(result, error)
+                }
+            }
+        }
     }
 }

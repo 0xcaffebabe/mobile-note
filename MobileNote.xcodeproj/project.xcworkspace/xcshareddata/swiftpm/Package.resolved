@@ -19,6 +19,15 @@
       }
     },
     {
+      "identity" : "snap",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/nerdsupremacist/Snap",
+      "state" : {
+        "revision" : "29943b7064547f391ea8352dea04903e2263d831",
+        "version" : "0.2.2"
+      }
+    },
+    {
       "identity" : "swiftsoup",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/scinfu/SwiftSoup.git",
