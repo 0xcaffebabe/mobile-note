@@ -50,18 +50,7 @@ struct DocView: View {
                 debugPrint("img desc \(self.imgDesc)")
                 self.showImageViewer = true
             }, bridgeName: "doc-img-click", invoker: invoker)
-            .overlay {
-                ImageViewerRemote(imageURL: self.$imgURL, viewerShown: self.$showImageViewer, closeButtonTopRight: true)
-                if showImageViewer {
-                    VStack {
-                        Spacer()
-                        Spacer()
-                        Text(imgDesc)
-                            .foregroundColor(.white)
-                            .multilineTextAlignment(.center)
-                    }.frame(maxHeight: .infinity, alignment: .bottom)
-                }
-            }
+            
             
             .onAppear {
                 Api.defaultApi.getDocFileInfo(id: docId) { docFileInfo in
@@ -75,8 +64,6 @@ struct DocView: View {
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarHidden(self.$showImageViewer.wrappedValue == true)
             .ignoresSafeArea()
-            
-            
             
             if self.ready {
                 SnapDrawer(state: $drawerState, large: .paddingToTop(24), medium: .fraction(0.6), tiny: .height(5), allowInvisible: false) { state in
@@ -92,11 +79,21 @@ struct DocView: View {
                         
                     }.ignoresSafeArea()
                     
-                    
                 }
                 
             }
             
+        }.overlay {
+            ImageViewerRemote(imageURL: self.$imgURL, viewerShown: self.$showImageViewer, closeButtonTopRight: true)
+            if showImageViewer {
+                VStack {
+                    Spacer()
+                    Spacer()
+                    Text(imgDesc)
+                        .foregroundColor(.white)
+                        .multilineTextAlignment(.center)
+                }.frame(maxHeight: .infinity, alignment: .bottom)
+            }
         }
         
     }
