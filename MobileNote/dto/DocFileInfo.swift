@@ -89,6 +89,7 @@ struct DocFileInfo: Hashable, Codable {
                     while i >= 1 {
                         if var toc = contentMap[i] {
                             toc.children.append(tocItem)
+                            break
                         }
                         i -= 1;
                     }
